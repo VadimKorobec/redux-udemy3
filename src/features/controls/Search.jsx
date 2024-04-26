@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { IoSearch } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { selectSearch } from "../store/controls/controlsSelectors";
-import { setSearch } from "../store/controls/controlsActions";
+import { selectSearch } from "../../store/controls/controlsSelectors";
+import { setSearch } from "../../store/controls/controlsActions";
 
 const InputContainer = styled.label`
   background-color: var(--colors-ui-base);

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { List } from "../components/List";
 import { Card } from "../components/Card";
-import { Controls } from "../components/Controls";
+import { Controls } from "../features/controls/Controls";
 import { useSelector } from "react-redux";
 import {
   selectCountriesInfo,
@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadCountries } from "../store/countries/countriesActions";
 import { selectControls } from "../store/controls/controlsSelectors";
+import { Spinner } from "../components/Spinner";
 
 export const HomePage = () => {
   const { search, region } = useSelector(selectControls);
@@ -35,7 +36,7 @@ export const HomePage = () => {
       <Controls />
 
       {error && <h2>Can't fetch data</h2>}
-      {status === "loading" && <h2>Loading...</h2>}
+      {status === "loading" && <Spinner />}
       {status === "received" && (
         <List>
           {countries.map((c) => {

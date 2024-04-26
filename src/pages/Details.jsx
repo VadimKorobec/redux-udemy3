@@ -11,6 +11,7 @@ import {
   clearDetails,
   loadCountryByName,
 } from "../store/details/detailsActions";
+import { Spinner } from "../components/Spinner";
 
 export const Details = () => {
   const { name } = useParams();
@@ -31,7 +32,7 @@ export const Details = () => {
       <Button onClick={() => navigate(-1)}>
         <IoArrowBack /> Back
       </Button>
-      {status === "loading" && <h2>Loading ...</h2>}
+      {status === "loading" && <Spinner />}
       {error && <h2>{error}</h2>}
       {currentCountry && <Info push={navigate} {...currentCountry} />}
     </div>
